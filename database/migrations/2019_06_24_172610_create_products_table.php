@@ -18,6 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('name',150);
             $table->text('description')->nullable();
             $table->decimal('price', 8,2);
+            $table->boolean('is_active')->default(true);
+            $table->softdeletes();
             $table->timestamps();
         });
     }

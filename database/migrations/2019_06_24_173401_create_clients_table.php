@@ -17,7 +17,8 @@ class CreateClientsTable extends Migration
             $table->bigIncrements('id');
             $table->string('nit',30);
             $table->string('name',150);
-            $table->decimal('total', 8,2);
+            $table->decimal('total', 8,2)->default(0);
+            $table->softdeletes();
             $table->timestamps();
         });
     }

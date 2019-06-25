@@ -16,7 +16,8 @@ class CreateSalesTable extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->datetime('date');
-            $table->foreign('clients_id')->references('id')->on('clients');
+                $table->unsignedBigInteger('client_id');
+                $table->foreign('client_id')->references('id')->on('clients');
             $table->decimal('total', 8,2);
             $table->softDeletes();
             $table->timestamps();

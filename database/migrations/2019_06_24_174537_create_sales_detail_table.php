@@ -15,8 +15,10 @@ class CreateSalesDetailTable extends Migration
     {
         Schema::create('sales_detail', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreign('sales_id')->references('id')->on('sales');
-            $table->foreign('products_id')->references('id')->on('products');
+                $table->unsignedBigInteger('sale_id');
+                $table->foreign('sale_id')->references('id')->on('sales');
+                $table->unsignedBigInteger('product_id');
+                $table->foreign('product_id')->references('id')->on('products');
             $table->decimal('quantity', 8,2);
             $table->decimal('unit_price', 8,2);
             $table->decimal('subtotal', 8,2);
